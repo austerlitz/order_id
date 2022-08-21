@@ -1,8 +1,12 @@
 # OrderId
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/OrderId`. To experiment with that code, run `bin/console` for an interactive prompt.
+If you're tired of creating a _kinda_ unique ids based on a timestamp, look no further.
+OrderId will create a hash-looking id strings that are nice and decodable back to a timestamp.
+`3I7BX-6WERP-CD4` is much better than `1661113911.978755`.
 
-TODO: Delete this and the text above, and describe your gem
+Basically, it takes a current timestamp and translates it to a string of upper-cased characters split in groups 
+of XX chars separated by a custom separator-char. 
+
 
 ## Installation
 
@@ -22,7 +26,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+OrderId.generate # G3RRY-ZMIHR-CCZ3P-FGXM
+OrderId.get_time('G3RRY-ZMIHR-CCZ3P-FGXM') # 2022-08-21 20:33:18 +0000
+```
+### Parameters
+OrderId takes four optional parameters:
+- `length`: number of decimal places in a timestamps. Makes no sense if it's over 20, common sense is 10 or 12.
+- `base`: base number system. Defaults to 36, but any arbitrary base is a good place to obfuscate your ids. E.g . `OrderId.generate(base: 12) # 12616-51312-6751B-A87B1-72235-444`
+- `separator`: a separator char. Defaults to `-` but can be `'/'` or any non-digit and non-word character
+- `group_length`: a number of chars in groups separated by a `separator`. Defaults to 4. `OrderId.generate(base: 12, length: 4, group_length: 8) # "1A434285-32526"`
+
+### Restoring a timestamp from an Id
+If you know the parameters which the Id has been generated with you can restore a timestamp the Id was based on.
+
+```ruby
+OrderId.get_time('1A434285-32526', base: 12, length: 4) # 2022-08-21 20:49:34 +0000
+``` 
 
 ## Development
 
