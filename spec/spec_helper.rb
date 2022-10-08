@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "OrderId"
+require "order_id"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

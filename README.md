@@ -13,7 +13,7 @@ of XX chars separated by a custom separator-char.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'OrderId'
+gem 'order_id'
 ```
 
 And then execute:

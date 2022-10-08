@@ -1,4 +1,4 @@
-require "OrderId/version"
+require "order_id/version"
 require 'bigdecimal'
 module OrderId
   DECIMAL_LENGTH = 20
