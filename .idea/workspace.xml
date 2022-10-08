@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b873eb2-62f8-4b0c-a8f7-c2e6e71629fe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OrderId.gemspec" beforeDir="false" afterPath="$PROJECT_DIR$/order_id.gemspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/OrderId.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/order_id.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/OrderId/version.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/order_id/version.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/OrderId_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/order_id_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +31,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/var/www/order_id",
     "nodejs_package_manager_path": "npm",
     "ruby.rails.projectView.checked": "true",
     "vue.rearranger.settings.migration": "true"
@@ -41,6 +47,7 @@
       <option name="presentableId" value="Default" />
       <updated>1661111615612</updated>
       <workItem from="1661111617027" duration="4151000" />
+      <workItem from="1665209439789" duration="393000" />
     </task>
     <servers />
   </component>
