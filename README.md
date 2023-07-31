@@ -32,7 +32,7 @@ OrderId.get_time('G3RRY-ZMIHR-CCZ3P-FGXM') # 2022-08-21 20:33:18 +0000
 ```
 ### Parameters
 OrderId takes four optional parameters:
-- `length`: number of decimal places in a timestamps. Makes no sense if it's over 20, common sense is 10 or 12.
+- `decimal_places`: number of decimal places in a timestamp. Makes no sense if it's over 20, common sense is 10 or 12.
 - `base`: base number system. Defaults to 36, but any arbitrary base is a good place to obfuscate your ids. E.g . `OrderId.generate(base: 12) # 12616-51312-6751B-A87B1-72235-444`
 - `separator`: a separator char. Defaults to `-` but can be `'/'` or any non-digit and non-word character
 - `group_length`: a number of chars in groups separated by a `separator`. Defaults to 4. `OrderId.generate(base: 12, length: 4, group_length: 8) # "1A434285-32526"`
@@ -41,7 +41,7 @@ OrderId takes four optional parameters:
 If you know the parameters which the Id has been generated with you can restore a timestamp the Id was based on.
 
 ```ruby
-OrderId.get_time('1A434285-32526', base: 12, length: 4) # 2022-08-21 20:49:34 +0000
+OrderId.get_time('1A434285-32526', base: 12, decimal_places: 4) # 2022-08-21 20:49:34 +0000
 ``` 
 
 ## Development
