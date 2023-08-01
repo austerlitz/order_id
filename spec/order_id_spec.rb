@@ -26,15 +26,72 @@ RSpec.describe OrderId do
       end
     end
 
+    context 'with custom separator' do
+      let(:separator) { '#' }
+      subject { described_class.generate(separator: separator) }
+
+      it 'generates a different ID than the default' do
+        default_id = described_class.generate
+        expect(subject).not_to eq default_id
+      end
+
+      it 'contains the custom separator' do
+        expect(subject).to include(separator)
+      end
+    end
+
     context 'with invalid separator' do
-      it 'raises FormatError' do
-        expect { described_class.generate(separator: 'A') }.to raise_error(OrderId::FormatError)
+      it 'raises ArgumentError' do
+        expect { described_class.generate(separator: 'A') }.to raise_error(ArgumentError)
       end
     end
 
     context 'with negative decimal_places' do
       it 'raises FormatError' do
-        expect { described_class.generate(decimal_places: -10) }.to raise_error(OrderId::FormatError)
+        expect { described_class.generate(decimal_places: -10) }.to raise_error(ArgumentError)
+      end
+    end
+
+    context 'with invalid decimal_places' do
+      it 'raises FormatError' do
+        expect { described_class.generate(decimal_places: 'ten') }.to raise_error(ArgumentError)
+      end
+    end
+
+    context 'with invalid base' do
+      it 'raises FormatError when base is not an integer' do
+        expect { described_class.generate(base: 'thirty-six') }.to raise_error(ArgumentError)
+      end
+
+      it 'raises FormatError when base is out of range' do
+        expect { described_class.generate(base: 37) }.to raise_error(ArgumentError)
+      end
+    end
+
+    context 'with invalid group_length' do
+      it 'raises FormatError' do
+        expect { described_class.generate(group_length: -5) }.to raise_error(ArgumentError)
+      end
+    end
+
+    context 'with custom timestamp' do
+      let(:timestamp) { Time.new(2022, 12, 25, 0, 0, 0).to_f }
+      subject { described_class.generate(timestamp: timestamp) }
+
+      it 'generates a different ID than the default' do
+        default_id = described_class.generate
+        expect(subject).not_to eq default_id
+      end
+
+      it 'generates the same ID for the same timestamp' do
+        same_timestamp_id = described_class.generate(timestamp: timestamp)
+        expect(subject).to eq same_timestamp_id
+      end
+    end
+
+    context 'with invalid timestamp' do
+      it 'raises ArgumentError' do
+        expect { described_class.generate(timestamp: 'invalid') }.to raise_error(ArgumentError)
       end
     end
   end
